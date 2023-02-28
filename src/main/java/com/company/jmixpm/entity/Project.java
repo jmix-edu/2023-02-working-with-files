@@ -22,6 +22,9 @@ public class Project {
     @Id
     private UUID id;
 
+    @Column(name = "DEFAULT_PROJECT")
+    private Boolean defaultProject;
+
     @NotNull
     @InstanceName
     @Column(name = "NAME", nullable = false)
@@ -41,6 +44,14 @@ public class Project {
     @Composition
     @OneToMany(mappedBy = "project")
     private List<Task> tasks;
+
+    public Boolean getDefaultProject() {
+        return defaultProject;
+    }
+
+    public void setDefaultProject(Boolean defaultProject) {
+        this.defaultProject = defaultProject;
+    }
 
     public List<Task> getTasks() {
         return tasks;
